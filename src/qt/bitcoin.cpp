@@ -19,6 +19,7 @@
 #include "splashscreen.h"
 #include "utilitydialog.h"
 #include "winshutdownmonitor.h"
+#include "styleSheet.h"
 
 #ifdef ENABLE_WALLET
 #include "paymentserver.h"
@@ -684,6 +685,8 @@ int main(int argc, char *argv[])
 
     try
     {
+        SetObjectStyleSheet(&app, StyleSheetNames::App);
+
         app.createWindow(networkStyle.data());
         app.requestInitialize();
 #if defined(Q_OS_WIN) && QT_VERSION >= 0x050000
