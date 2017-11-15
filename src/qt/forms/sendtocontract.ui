@@ -137,7 +137,7 @@
                <x>0</x>
                <y>0</y>
                <width>637</width>
-               <height>116</height>
+               <height>139</height>
               </rect>
              </property>
             </widget>
@@ -327,12 +327,6 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonSendToContract">
-       <property name="minimumSize">
-        <size>
-         <width>150</width>
-         <height>50</height>
-        </size>
-       </property>
        <property name="text">
         <string>Send To Contract</string>
        </property>
@@ -356,12 +350,6 @@
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonClearAll">
-       <property name="minimumSize">
-        <size>
-         <width>150</width>
-         <height>50</height>
-        </size>
-       </property>
        <property name="text">
         <string>Clear All</string>
        </property>
