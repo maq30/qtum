@@ -9,6 +9,7 @@
 #include "contractabi.h"
 #include "tabbarinfo.h"
 #include "contractresult.h"
+#include "styleSheet.h"
 
 namespace CallContract_NS
 {
@@ -31,6 +32,10 @@ CallContract::CallContract(const PlatformStyle *platformStyle, QWidget *parent) 
 {
     // Setup ui components
     ui->setupUi(this);
+
+    // Set stylesheet
+    SetObjectStyleSheet(ui->pushButtonClearAll, StyleSheetNames::ButtonBlack);
+
     m_ABIFunctionField = new ABIFunctionField(platformStyle, ABIFunctionField::Call, ui->scrollAreaFunction);
     ui->scrollAreaFunction->setWidget(m_ABIFunctionField);
 
