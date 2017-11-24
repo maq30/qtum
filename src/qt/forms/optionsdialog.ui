@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>697</width>
-    <height>440</height>
+    <height>434</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,9 @@
    <property name="leftMargin">
     <number>0</number>
    </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
    <property name="rightMargin">
     <number>0</number>
    </property>
@@ -28,12 +31,6 @@
    </property>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_3">
-     <property name="leftMargin">
-      <number>9</number>
-     </property>
-     <property name="rightMargin">
-      <number>9</number>
-     </property>
      <item>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
@@ -44,6 +41,21 @@
          <string>&amp;Main</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_Main">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="leftMargin">
+          <number>30</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>30</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
          <item>
           <widget class="QCheckBox" name="bitcoinAtStartup">
            <property name="toolTip">
@@ -55,8 +67,11 @@
           </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2_Main">
-           <item>
+          <layout class="QGridLayout" name="gridLayout">
+           <property name="verticalSpacing">
+            <number>10</number>
+           </property>
+           <item row="1" column="0">
             <widget class="QLabel" name="databaseCacheLabel">
              <property name="text">
               <string>Size of &amp;database cache</string>
@@ -69,74 +84,64 @@
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QSpinBox" name="databaseCache"/>
+           <item row="3" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayoutReserveBalance">
+             <item>
+              <widget class="BitcoinAmountField" name="reserveBalance"/>
+             </item>
+             <item>
+              <spacer name="horizontalSpacerReserveBalance">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </item>
-           <item>
-            <widget class="QLabel" name="databaseCacheUnitLabel">
-             <property name="text">
-              <string>MB</string>
-             </property>
-             <property name="textFormat">
-              <enum>Qt::PlainText</enum>
-             </property>
-            </widget>
+           <item row="1" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_2_Main">
+             <item>
+              <widget class="QSpinBox" name="databaseCache">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>0</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="databaseCacheUnitLabel">
+               <property name="text">
+                <string>MB</string>
+               </property>
+               <property name="textFormat">
+                <enum>Qt::PlainText</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2_Main">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </item>
-           <item>
-            <spacer name="horizontalSpacer_2_Main">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_3_Main">
-           <item>
-            <widget class="QLabel" name="threadsScriptVerifLabel">
-             <property name="text">
-              <string>Number of script &amp;verification threads</string>
-             </property>
-             <property name="textFormat">
-              <enum>Qt::PlainText</enum>
-             </property>
-             <property name="buddy">
-              <cstring>threadsScriptVerif</cstring>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QSpinBox" name="threadsScriptVerif">
-             <property name="toolTip">
-              <string>(0 = auto, &lt;0 = leave that many cores free)</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_3_Main">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayoutReserveBalance">
-           <item>
+           <item row="3" column="0">
             <widget class="QLabel" name="reserveBalanceLabel">
              <property name="text">
               <string>Reserve</string>
@@ -149,21 +154,48 @@
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="BitcoinAmountField" name="reserveBalance"/>
+           <item row="2" column="0">
+            <widget class="QLabel" name="threadsScriptVerifLabel">
+             <property name="text">
+              <string>Number of script &amp;verification threads</string>
+             </property>
+             <property name="textFormat">
+              <enum>Qt::PlainText</enum>
+             </property>
+             <property name="buddy">
+              <cstring>threadsScriptVerif</cstring>
+             </property>
+            </widget>
            </item>
-           <item>
-            <spacer name="horizontalSpacerReserveBalance">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
+           <item row="2" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout_3_Main">
+             <item>
+              <widget class="QSpinBox" name="threadsScriptVerif">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>(0 = auto, &lt;0 = leave that many cores free)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_3_Main">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
            </item>
           </layout>
          </item>
@@ -194,12 +226,30 @@
          <string>W&amp;allet</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_Wallet">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="leftMargin">
+          <number>30</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>30</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
          <item>
-          <widget class="QGroupBox" name="groupBox">
+          <widget class="QGroupBox" name="groupBoxExpert">
            <property name="title">
             <string>Expert</string>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="spacing">
+             <number>10</number>
+            </property>
             <item>
              <widget class="QCheckBox" name="coinControlFeatures">
               <property name="toolTip">
@@ -243,6 +293,21 @@
          <string>&amp;Network</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_Network">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="leftMargin">
+          <number>30</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>30</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
          <item>
           <widget class="QCheckBox" name="mapPortUpnp">
            <property name="toolTip">
@@ -561,6 +626,21 @@
          <string>&amp;Window</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_Window">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="leftMargin">
+          <number>30</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>30</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
          <item>
           <widget class="QCheckBox" name="hideTrayIcon">
            <property name="toolTip">
@@ -611,9 +691,41 @@
          <string>&amp;Display</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_Display">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="leftMargin">
+          <number>30</number>
+         </property>
+         <property name="topMargin">
+          <number>20</number>
+         </property>
+         <property name="rightMargin">
+          <number>30</number>
+         </property>
+         <property name="bottomMargin">
+          <number>20</number>
+         </property>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_1_Display">
-           <item>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <property name="verticalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="1">
+            <widget class="QValueComboBox" name="lang">
+             <property name="toolTip">
+              <string>The user interface language can be set here. This setting will take effect after restarting %1.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QValueComboBox" name="unit">
+             <property name="toolTip">
+              <string>Choose the default subdivision unit to show in the interface and when sending coins.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
             <widget class="QLabel" name="langLabel">
              <property name="text">
               <string>User Interface &amp;language:</string>
@@ -626,18 +738,7 @@
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QValueComboBox" name="lang">
-             <property name="toolTip">
-              <string>The user interface language can be set here. This setting will take effect after restarting %1.</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2_Display">
-           <item>
+           <item row="1" column="0">
             <widget class="QLabel" name="unitLabel">
              <property name="text">
               <string>&amp;Unit to show amounts in:</string>
@@ -650,18 +751,7 @@
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QValueComboBox" name="unit">
-             <property name="toolTip">
-              <string>Choose the default subdivision unit to show in the interface and when sending coins.</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_3_Display">
-           <item>
+           <item row="2" column="0">
             <widget class="QLabel" name="thirdPartyTxUrlsLabel">
              <property name="toolTip">
               <string>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</string>
@@ -674,7 +764,7 @@
              </property>
             </widget>
            </item>
-           <item>
+           <item row="2" column="1">
             <widget class="QLineEdit" name="thirdPartyTxUrls">
              <property name="toolTip">
               <string>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</string>
@@ -703,6 +793,12 @@
      <item>
       <widget class="QFrame" name="frame">
        <layout class="QVBoxLayout" name="verticalLayout_Bottom">
+        <property name="leftMargin">
+         <number>30</number>
+        </property>
+        <property name="rightMargin">
+         <number>30</number>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_Bottom">
           <item>
