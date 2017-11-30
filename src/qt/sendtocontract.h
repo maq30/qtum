@@ -32,8 +32,8 @@ public:
 Q_SIGNALS:
 
 public Q_SLOTS:
-    void on_clearAll_clicked();
-    void on_sendToContract_clicked();
+    void on_clearAllClicked();
+    void on_sendToContractClicked();
     void on_numBlocksChanged();
     void on_updateSendToContractButton();
     void on_newContractABI();
